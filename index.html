@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Glossary - HUTECH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=KaTeX_Math&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">∫</span>
+                    <div>
+                        <h1>Calculus Glossary</h1>
+                        <p class="subtitle">Ho Chi Minh City University of Technology and Education (HUTECH)</p>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search terms..." autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <aside class="sidebar" id="sidebar">
+            <h2 class="sidebar-title">Topics</h2>
+            <nav class="topic-nav" id="topicNav"></nav>
+        </aside>
+
+        <section class="content" id="content">
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-icon">📐</div>
+                <h2>Welcome to Calculus Glossary!</h2>
+                <p>Select a topic from the left panel or search for a term to get started.</p>
+                <p class="welcome-hint">Click on any term to see its definition and hear its pronunciation.</p>
+            </div>
+            <div class="topic-detail" id="topicDetail" style="display:none;">
+                <div class="topic-header">
+                    <h2 id="topicTitle"></h2>
+                    <p id="topicDescription"></p>
+                </div>
+                <div class="terms-grid" id="termsGrid"></div>
+            </div>
+            <div class="search-results" id="searchResults" style="display:none;">
+                <h2>Search Results</h2>
+                <div class="terms-grid" id="searchGrid"></div>
+                <p class="no-results" id="noResults" style="display:none;">No terms found. Try a different keyword.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Term Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="termModal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-term" id="modalTerm"></h2>
+                <button class="btn-pronounce" id="btnPronounce" title="Listen to pronunciation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                    <span>Pronounce</span>
+                </button>
+            </div>
+            <div class="modal-phonetic" id="modalPhonetic"></div>
+            <div class="modal-body">
+                <div class="modal-definition">
+                    <h3>Definition</h3>
+                    <p id="modalDefinition"></p>
+                </div>
+                <div class="modal-example" id="modalExampleSection">
+                    <h3>Example</h3>
+                    <p id="modalExample"></p>
+                </div>
+                <div class="modal-related" id="modalRelatedSection">
+                    <h3>Related Terms</h3>
+                    <div id="modalRelated" class="related-tags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Calculus Glossary — HUTECH. Built for students learning Calculus in English.</p>
+        </div>
+    </footer>
+
+    <script src="glossary-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
