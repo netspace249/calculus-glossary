@@ -319,7 +319,15 @@ body {
     font-size: 0.8rem;
     color: var(--accent);
     font-style: italic;
+    margin-bottom: 4px;
+}
+
+.term-card .term-vietnamese {
+    font-size: 0.82rem;
+    color: #059669;
+    font-weight: 500;
     margin-bottom: 8px;
+    padding: 3px 0;
 }
 
 .term-card p {
@@ -478,7 +486,25 @@ body {
     font-size: 1rem;
     color: var(--accent);
     font-style: italic;
+    margin-bottom: 8px;
+}
+
+.modal-vietnamese {
+    font-size: 1.05rem;
+    color: #059669;
+    font-weight: 600;
     margin-bottom: 24px;
+    padding: 8px 14px;
+    background: #ecfdf5;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid #059669;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-vietnamese .vn-flag {
+    font-size: 1.1rem;
 }
 
 .modal-body h3 {

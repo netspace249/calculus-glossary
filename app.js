@@ -18,6 +18,7 @@ const modalExample = document.getElementById('modalExample');
 const modalExampleSection = document.getElementById('modalExampleSection');
 const modalRelated = document.getElementById('modalRelated');
 const modalRelatedSection = document.getElementById('modalRelatedSection');
+const modalVietnamese = document.getElementById('modalVietnamese');
 const btnPronounce = document.getElementById('btnPronounce');
 
 let currentTerm = null;
@@ -77,6 +78,7 @@ function createTermCard(term, topicName) {
         <div class="term-card" data-term="${encodeURIComponent(term.term)}">
             <h3>${term.term}</h3>
             <div class="term-phonetic">${term.phonetic}</div>
+            ${term.vietnamese ? `<div class="term-vietnamese">🇻🇳 ${term.vietnamese}</div>` : ''}
             <p>${term.definition}</p>
             <div class="card-footer">
                 <span class="topic-tag">${topicName || ''}</span>
@@ -100,6 +102,13 @@ function openModal(termName) {
     modalTerm.textContent = term.term;
     modalPhonetic.textContent = term.phonetic;
     modalDefinition.textContent = term.definition;
+
+    if (term.vietnamese) {
+        modalVietnamese.style.display = 'block';
+        modalVietnamese.innerHTML = '<span class="vn-flag">🇻🇳</span> ' + term.vietnamese;
+    } else {
+        modalVietnamese.style.display = 'none';
+    }
 
     if (term.example) {
         modalExampleSection.style.display = 'block';
