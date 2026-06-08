@@ -299,4 +299,25 @@ function handleDeepLink() {
 document.addEventListener('DOMContentLoaded', () => {
     init();
     handleDeepLink();
+    listenForTermRequests();
 });
+
+// ===== Listen for term requests from open.html launcher tabs =====
+function listenForTermRequests() {
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'glossary-open-term' && e.newValue) {
+            try {
+                const data = JSON.parse(e.newValue);
+                if (data.term) {
+                    const term = allTerms.find(t => t.term.toLowerCase() === data.term.toLowerCase());
+                    if (term) {
+                        showTopic(term.topicId);
+                        setTimeout(() => openModal(term.term), 200);
+                    }
+                }
+            } catch (err) {
+                // ignore
+            }
+        }
+    });
+}
