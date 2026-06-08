@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Opening Glossary...</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; text-align: center; margin-top: 60px; color: #333; }
+        .msg { font-size: 1.1rem; }
+        .hint { font-size: 0.9rem; color: #666; margin-top: 12px; }
+    </style>
+    <script>
+        // Launcher page: always opens the glossary in the SAME named tab/window.
+        // PowerPoint links should use: open.html?term=TermName
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var term = params.get('term') || '';
+            var baseUrl = window.location.href.replace(/open\.html.*$/, '');
+            var targetUrl = baseUrl + 'index.html?term=' + encodeURIComponent(term);
+
+            // "calculus-glossary" is the window name — browser reuses same tab
+            var win = window.open(targetUrl, 'calculus-glossary');
+
+            // Try to focus the opened tab
+            if (win) win.focus();
+        })();
+    </script>
+</head>
+<body>
+    <p class="msg">📖 Opening glossary term...</p>
+    <p class="hint">The glossary is open in another tab. You can close this tab.</p>
+</body>
+</html>
