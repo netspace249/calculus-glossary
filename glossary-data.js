@@ -10,7 +10,7 @@ const GLOSSARY_DATA = {
           term: "Limit",
           phonetic: "/ˈlɪm.ɪt/",
           vietnamese: "Giới hạn",
-          definition: "The value that a function approaches as the input approaches a specified value. It describes the behavior of a function near a point, even if the function is not defined at that[...]
+          definition: "The value that a function approaches as the input approaches a specified value. It describes the behavior of a function near a point, even if the function is not defined at that point.",
           example: "lim(x→2) (x² - 4)/(x - 2) = 4, even though the function is undefined at x = 2.",
           related: ["Continuity", "One-sided limit", "Infinite limit"]
         },
@@ -49,8 +49,8 @@ const GLOSSARY_DATA = {
         {
           term: "Squeeze Theorem",
           phonetic: "/skwiːz ˈθɪə.rəm/",
-          vietnamese: "Định lý kẹp",
-          definition: "If g(x) ≤ f(x) ≤ h(x) near a point and lim g(x) = lim h(x) = L, then lim f(x) = L.",
+          vietnamese: "Định lý kẹp (Định lý Sandwich)",
+          definition: "If g(x) ≤ f(x) ≤ h(x) near a point and lim g(x) = lim h(x) = L, then lim f(x) = L. Also known as the Sandwich Theorem.",
           example: "Since −1 ≤ sin(x) ≤ 1, we have −1/x ≤ sin(x)/x ≤ 1/x, so lim(x→∞) sin(x)/x = 0.",
           related: ["Limit", "Trigonometric limits"]
         },
@@ -378,7 +378,7 @@ const GLOSSARY_DATA = {
           term: "Horizontal strips",
           phonetic: "/ˌhɒr.ɪˈzɒn.təl strɪps/",
           vietnamese: "Dải ngang (phương pháp chia ngang)",
-          definition: "A method of computing area between curves by integrating with respect to y. Each thin horizontal rectangle has height dy and width |f(y) − g(y)|. Useful when curves are better[...]
+          definition: "A method of computing area between curves by integrating with respect to y. Each thin horizontal rectangle has height dy and width |f(y) − g(y)|. Useful when curves are better expressed as functions of y.",
           example: "Area = ∫_c^d [f(y) − g(y)] dy, where f(y) is the right curve and g(y) is the left curve.",
           related: ["Area between two curves", "Vertical strips", "Definite integral"]
         },
@@ -410,7 +410,7 @@ const GLOSSARY_DATA = {
           term: "Disk method",
           phonetic: "/dɪsk ˈmeθ.əd/",
           vietnamese: "Phương pháp đĩa tròn",
-          definition: "A method for finding the volume of a solid of revolution by integrating the area of circular cross-sections (disks). V = π ∫ₐᵇ [R(x)]² dx, where R(x) is the radius of ea[...]
+          definition: "A method for finding the volume of a solid of revolution by integrating the area of circular cross-sections (disks). V = π ∫ₐᵇ [R(x)]² dx, where R(x) is the radius of each disk.",
           example: "Rotating y = x² around the x-axis from 0 to 1: V = π ∫₀¹ (x²)² dx = π ∫₀¹ x⁴ dx = π/5.",
           related: ["Solid of revolution", "Washer method", "Cross-sectional area"]
         },
@@ -418,7 +418,7 @@ const GLOSSARY_DATA = {
           term: "Washer method",
           phonetic: "/ˈwɒʃ.ər ˈmeθ.əd/",
           vietnamese: "Phương pháp vành khăn",
-          definition: "A method for finding the volume of a solid of revolution with a hole in the middle. V = π ∫ₐᵇ ([R(x)]² − [r(x)]²) dx, where R(x) is the outer radius and r(x) is the i[...]
+          definition: "A method for finding the volume of a solid of revolution with a hole in the middle. V = π ∫ₐᵇ ([R(x)]² − [r(x)]²) dx, where R(x) is the outer radius and r(x) is the inner radius.",
           example: "Rotating the region between y = x and y = x² around the x-axis: V = π ∫₀¹ (x² − x⁴) dx.",
           related: ["Disk method", "Solid of revolution", "Shell method"]
         },
@@ -426,7 +426,7 @@ const GLOSSARY_DATA = {
           term: "Shell method",
           phonetic: "/ʃel ˈmeθ.əd/",
           vietnamese: "Phương pháp vỏ trụ",
-          definition: "A method for finding the volume of a solid of revolution using cylindrical shells. V = 2π ∫ₐᵇ x · f(x) dx when rotating around the y-axis. Each shell has radius x, heigh[...]
+          definition: "A method for finding the volume of a solid of revolution using cylindrical shells. V = 2π ∫ₐᵇ x · f(x) dx when rotating around the y-axis. Each shell has radius x, height f(x), and thickness dx.",
           example: "Rotating y = x² around the y-axis from x = 0 to x = 1: V = 2π ∫₀¹ x · x² dx = 2π ∫₀¹ x³ dx = π/2.",
           related: ["Washer method", "Disk method", "Solid of revolution"]
         },
@@ -434,7 +434,7 @@ const GLOSSARY_DATA = {
           term: "Cylindrical shell",
           phonetic: "/sɪˈlɪn.drɪ.kəl ʃel/",
           vietnamese: "Vỏ hình trụ",
-          definition: "A thin hollow cylinder used in the shell method. When 'unwrapped' and flattened, it forms a thin rectangular slab with height f(x), width 2πx (circumference), and thickness dx.[...]
+          definition: "A thin hollow cylinder used in the shell method. When 'unwrapped' and flattened, it forms a thin rectangular slab with height f(x), width 2πx (circumference), and thickness dx.",
           example: "A cylindrical shell at radius x with height f(x) has volume ΔV ≈ 2πx · f(x) · dx.",
           related: ["Shell method", "Solid of revolution", "Volume"]
         }
