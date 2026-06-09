@@ -556,6 +556,49 @@ const GLOSSARY_DATA = {
           image: "images/area-in-polar.jpg"
         }
       ]
+    },
+    {
+      id: "fluid-force-work",
+      name: "Fluid Force & Work",
+      emoji: "💧",
+      description: "Fluid pressure, hydrostatic force, and work done by variable forces.",
+      terms: [
+        {
+          term: "Fluid force",
+          phonetic: "/ˈfluː.ɪd fɔːrs/",
+          vietnamese: "Lực chất lỏng (áp lực thủy tĩnh)",
+          definition: "The force exerted by a fluid on a submerged surface due to pressure. For a horizontal plate at depth h: F = ρghA. For a vertical plate, the force is calculated by integrating the pressure over the surface: F = ∫ ρg·h(y)·w(y) dy.",
+          example: "A rectangular plate 2m wide submerged vertically from depth 1m to 3m in water: F = ρg ∫₁³ y·2 dy = 1000·9.8·[y²]₁³ = 78,400 N.",
+          related: ["Weight density of fluid", "Definite integral"],
+          image: "images/fluid-force.png"
+        },
+        {
+          term: "Weight density of fluid",
+          phonetic: "/weɪt ˈden.sɪ.ti əv ˈfluː.ɪd/",
+          vietnamese: "Trọng lượng riêng của chất lỏng",
+          definition: "The weight per unit volume of a fluid, denoted by w or ρg. For water, the weight density is approximately 62.4 lb/ft³ (in imperial) or 9800 N/m³ (in SI units).",
+          example: "Water has weight density w = 62.4 lb/ft³. The pressure at depth h is p = wh = 62.4h lb/ft².",
+          related: ["Fluid force"]
+        },
+        {
+          term: "Work done by a variable force",
+          phonetic: "/wɜːrk dʌn baɪ ə ˈveə.ri.ə.bəl fɔːrs/",
+          vietnamese: "Công sinh bởi lực biến thiên",
+          definition: "When a force F(x) varies along the direction of motion, the work done in moving an object from x = a to x = b is W = ∫ₐᵇ F(x) dx.",
+          example: "A spring with force F(x) = kx requires work W = ∫₀^d kx dx = kd²/2 to stretch it a distance d from its natural length.",
+          related: ["Work", "Definite integral"],
+          image: "images/work-variable-force.png"
+        },
+        {
+          term: "Work",
+          phonetic: "/wɜːrk/",
+          vietnamese: "Công (cơ học)",
+          definition: "The energy transferred when a force moves an object over a distance. For a constant force: W = F·d. For a variable force: W = ∫ₐᵇ F(x) dx. Measured in joules (SI) or foot-pounds (imperial).",
+          example: "Pumping water from a tank: W = ∫₀ʰ ρgA(y)·(H − y) dy, where A(y) is the cross-sectional area at height y and H is the height to which water is pumped.",
+          related: ["Work done by a variable force", "Definite integral"],
+          image: "images/work.jpg"
+        }
+      ]
     }
   ]
 };
