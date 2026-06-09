@@ -39,19 +39,44 @@ function init() {
 
 // ===== Render Topic Navigation =====
 function renderTopicNav() {
-    topicNav.innerHTML = GLOSSARY_DATA.topics.map(topic => `
-        <button class="topic-btn" data-topic="${topic.id}">
-            <span class="topic-emoji">${topic.emoji}</span>
-            <span>${topic.name}</span>
-            <span class="topic-count">${topic.terms.length}</span>
-        </button>
-    `).join('');
+    topicNav.innerHTML = GLOSSARY_DATA.topics.map(topic => {
+        let html = `
+            <button class="topic-btn" data-topic="${topic.id}">
+                <span class="topic-emoji">${topic.emoji}</span>
+                <span>${topic.name}</span>
+                <span class="topic-count">${topic.terms.length}</span>
+            </button>
+        `;
+        if (topic.subtopics) {
+            html += topic.subtopics.map(sub => `
+                <button class="topic-btn subtopic-btn" data-topic="${sub.id}" data-parent="${topic.id}">
+                    <span class="topic-emoji">${sub.emoji}</span>
+                    <span>${sub.name}</span>
+                </button>
+            `).join('');
+        }
+        return html;
+    }).join('');
 }
 
 // ===== Show Topic =====
 function showTopic(topicId) {
-    const topic = GLOSSARY_DATA.topics.find(t => t.id === topicId);
-    if (!topic) return;
+    // Find topic or subtopic
+    let topic = GLOSSARY_DATA.topics.find(t => t.id === topicId);
+    let subtopic = null;
+
+    if (!topic) {
+        // Search in subtopics
+        for (const t of GLOSSARY_DATA.topics) {
+            if (t.subtopics) {
+                subtopic = t.subtopics.find(s => s.id === topicId);
+                if (subtopic) break;
+            }
+        }
+        if (!subtopic) return;
+    }
+
+    const displayItem = subtopic || topic;
 
     // Update active button
     document.querySelectorAll('.topic-btn').forEach(btn => {
@@ -63,13 +88,51 @@ function showTopic(topicId) {
     searchResults.style.display = 'none';
     topicDetail.style.display = 'block';
 
-    topicTitle.textContent = topic.emoji + ' ' + topic.name;
-    topicDescription.textContent = topic.description;
+    topicTitle.textContent = displayItem.emoji + ' ' + displayItem.name;
+    topicDescription.textContent = displayItem.description;
 
-    termsGrid.innerHTML = topic.terms.map(term => createTermCard(term, topic.name)).join('');
+    // Render as image, table, or card grid
+    if (displayItem.isImage) {
+        termsGrid.innerHTML = `
+            <div class="topic-image-wrapper">
+                <img src="${displayItem.topicImage}" alt="${displayItem.name}" class="topic-image">
+            </div>
+        `;
+    } else if (displayItem.isTable) {
+        termsGrid.innerHTML = renderFormulaTable(displayItem);
+    } else {
+        termsGrid.innerHTML = topic.terms.map(term => createTermCard(term, topic.name)).join('');
+    }
 
     // Clear search
     searchInput.value = '';
+}
+
+// ===== Render Formula Table =====
+function renderFormulaTable(topic) {
+    const headers = topic.tableHeaders || ["f(x)", "f ′(x)", "Note"];
+    return `
+        <div class="formula-table-wrapper">
+            <table class="formula-table">
+                <thead>
+                    <tr>
+                        ${headers.map(h => `<th>${h}</th>`).join('')}
+                        <th>Vietnamese</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${topic.terms.map(term => `
+                        <tr class="formula-row" data-term="${encodeURIComponent(term.term)}">
+                            <td class="formula-cell">${term.formula.fx}</td>
+                            <td class="formula-cell formula-result">${term.formula.fpx}</td>
+                            <td class="formula-note">${term.formula.note}</td>
+                            <td class="formula-vn">${term.vietnamese}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        </div>
+    `;
 }
 
 // ===== Create Term Card HTML =====
@@ -249,6 +312,14 @@ function setupEventListeners() {
         const card = e.target.closest('.term-card');
         if (card) {
             const termName = decodeURIComponent(card.dataset.term);
+            openModal(termName);
+            return;
+        }
+
+        // Formula table row
+        const row = e.target.closest('.formula-row');
+        if (row) {
+            const termName = decodeURIComponent(row.dataset.term);
             openModal(termName);
             return;
         }

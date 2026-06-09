@@ -93,6 +93,16 @@ const GLOSSARY_DATA = {
       name: "Derivatives",
       emoji: "📈",
       description: "Rates of change and slopes of tangent lines.",
+      subtopics: [
+        {
+          id: "table-of-derivatives",
+          name: "Table of Derivatives",
+          emoji: "📋",
+          description: "Quick reference table of common derivative formulas.",
+          isImage: true,
+          topicImage: "images/table-of-derivatives.png"
+        }
+      ],
       terms: [
         {
           term: "Derivative",
