@@ -76,6 +76,7 @@ function showTopic(topicId) {
 function createTermCard(term, topicName) {
     return `
         <div class="term-card" data-term="${encodeURIComponent(term.term)}">
+            ${term.image ? `<div class="card-image"><img src="${term.image}" alt="${term.term}"></div>` : ''}
             <h3>${term.term}</h3>
             <div class="term-phonetic">${term.phonetic}</div>
             ${term.vietnamese ? `<div class="term-vietnamese">🇻🇳 ${term.vietnamese}</div>` : ''}
@@ -115,6 +116,17 @@ function openModal(termName) {
         modalExample.textContent = term.example;
     } else {
         modalExampleSection.style.display = 'none';
+    }
+
+    // Show image if available
+    const modalImageSection = document.getElementById('modalImageSection');
+    const modalImage = document.getElementById('modalImage');
+    if (term.image) {
+        modalImageSection.style.display = 'block';
+        modalImage.src = term.image;
+        modalImage.alt = term.term;
+    } else {
+        modalImageSection.style.display = 'none';
     }
 
     if (term.related && term.related.length > 0) {

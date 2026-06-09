@@ -503,6 +503,59 @@ const GLOSSARY_DATA = {
           related: ["Power series", "Ratio test", "Interval of convergence"]
         }
       ]
+    },
+    {
+      id: "polar-coordinates",
+      name: "Polar Coordinates",
+      emoji: "🌀",
+      description: "Polar coordinate system, polar curves, and computing areas in polar form.",
+      terms: [
+        {
+          term: "Polar coordinate system",
+          phonetic: "/ˈpoʊ.lər koʊˈɔːr.dɪ.nɪt ˈsɪs.təm/",
+          vietnamese: "Hệ tọa độ cực",
+          definition: "A two-dimensional coordinate system in which each point is determined by a distance r from the origin (pole) and an angle θ from the positive x-axis (polar axis).",
+          example: "The point (3, π/4) in polar coordinates is located 3 units from the origin at an angle of 45° from the polar axis.",
+          related: ["Polar to rectangular conversion", "Polar curve"],
+          image: "images/polar-coordinate-system.png"
+        },
+        {
+          term: "Polar to rectangular conversion",
+          phonetic: "/ˈpoʊ.lər tuː rekˈtæŋ.ɡjʊ.lər kənˈvɜː.ʃən/",
+          vietnamese: "Chuyển đổi tọa độ cực sang tọa độ vuông góc",
+          definition: "The formulas to convert polar coordinates (r, θ) to rectangular coordinates (x, y): x = r·cos(θ) and y = r·sin(θ). Conversely, r = √(x² + y²) and θ = arctan(y/x).",
+          example: "Convert (4, π/3) to rectangular: x = 4·cos(π/3) = 2, y = 4·sin(π/3) = 2√3. So the point is (2, 2√3).",
+          related: ["Polar coordinate system", "Polar curve"],
+          image: "images/polar-to-rectangular.jpg"
+        },
+        {
+          term: "Polar curve",
+          phonetic: "/ˈpoʊ.lər kɜːrv/",
+          vietnamese: "Đường cong trong tọa độ cực",
+          definition: "A curve defined by an equation r = f(θ) in polar coordinates. Common polar curves include cardioids, rose curves, limaçons, and spirals.",
+          example: "The equation r = 1 + cos(θ) defines a cardioid. The equation r = sin(2θ) defines a four-petaled rose curve.",
+          related: ["Polar coordinate system", "Intersection of polar curves", "Area in polar coordinates"],
+          image: "images/polar-curve-1.png"
+        },
+        {
+          term: "Intersection of polar curves",
+          phonetic: "/ˌɪn.tərˈsek.ʃən əv ˈpoʊ.lər kɜːrvz/",
+          vietnamese: "Giao điểm các đường cong cực",
+          definition: "Points where two polar curves r = f(θ) and r = g(θ) meet. Found by solving f(θ) = g(θ). Note: the pole (origin) must be checked separately as curves may pass through it at different θ values.",
+          example: "Find intersections of r = sin(θ) and r = cos(θ): sin(θ) = cos(θ) → tan(θ) = 1 → θ = π/4, giving the point (√2/2, π/4).",
+          related: ["Polar curve", "Polar coordinate system", "Area in polar coordinates"],
+          image: "images/polar-curve-2.png"
+        },
+        {
+          term: "Area in polar coordinates",
+          phonetic: "/ˈeə.ri.ə ɪn ˈpoʊ.lər koʊˈɔːr.dɪ.nɪts/",
+          vietnamese: "Diện tích trong tọa độ cực",
+          definition: "The area enclosed by a polar curve r = f(θ) from θ = α to θ = β is given by A = (1/2) ∫_α^β [f(θ)]² dθ. For the area between two curves: A = (1/2) ∫_α^β ([f(θ)]² − [g(θ)]²) dθ.",
+          example: "Area enclosed by r = 2cos(θ) (a circle): A = (1/2) ∫₀^π [2cos(θ)]² dθ = (1/2) ∫₀^π 4cos²(θ) dθ = π.",
+          related: ["Polar curve", "Definite integral", "Intersection of polar curves"],
+          image: "images/area-in-polar.jpg"
+        }
+      ]
     }
   ]
 };

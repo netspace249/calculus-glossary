@@ -298,6 +298,19 @@ body {
     transition: var(--transition);
 }
 
+.card-image {
+    margin: -20px -20px 12px -20px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
 .term-card:hover {
     border-color: var(--primary);
     box-shadow: var(--shadow-lg);
@@ -538,6 +551,17 @@ body {
     font-size: 0.9rem;
     color: var(--text-secondary);
     font-style: italic;
+}
+
+.modal-image {
+    margin-bottom: 20px;
+}
+
+.modal-image img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    margin-top: 8px;
 }
 
 .modal-related {
