@@ -49,7 +49,7 @@ const GLOSSARY_DATA = {
         {
           term: "Squeeze Theorem",
           phonetic: "/skwiːz ˈθɪə.rəm/",
-          vietnamese: "Định lý kẹp (Định lý Sandwich)",
+          vietnamese: "Định lý kẹp",
           definition: "If g(x) ≤ f(x) ≤ h(x) near a point and lim g(x) = lim h(x) = L, then lim f(x) = L. Also known as the Sandwich Theorem.",
           example: "Since −1 ≤ sin(x) ≤ 1, we have −1/x ≤ sin(x)/x ≤ 1/x, so lim(x→∞) sin(x)/x = 0.",
           related: ["Limit", "Trigonometric limits"]
